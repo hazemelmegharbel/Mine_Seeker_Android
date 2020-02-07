@@ -1,5 +1,6 @@
 package com.example.mine_sweeper;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -10,30 +11,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainMenuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.activity_main_menu);
 
-
-        Button btn = (Button) findViewById(R.id.btnMain_Menu);
+        Button btn= (Button) findViewById(R.id.btnPlayGame);
         btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent main_menu = MainMenuActivity.makeLaunchIntent(MainActivity.this);
-                startActivity((main_menu));
+                Intent play_the_game = PlayGameActivity.makeLaunchIntent(MainMenuActivity.this);
+                startActivity((play_the_game));
             }
         });
 
+
+    }
+
+    public static Intent makeLaunchIntent(Context c) {
+        Intent intent = new Intent(c, MainMenuActivity.class);
+        return intent;
     }
 
 
