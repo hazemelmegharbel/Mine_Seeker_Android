@@ -22,3 +22,6 @@ public class HelpActivity extends AppCompatActivity {
         return intent;
     }
 }
+
+
+//creation of hyperlink to CMPT276 homepage was adapted from this video: https://www.youtube.com/watch?v=X0vXAe9UT7I ;

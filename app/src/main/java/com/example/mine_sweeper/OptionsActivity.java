@@ -23,10 +23,15 @@ public class OptionsActivity extends AppCompatActivity {
     }
 
     private void createRadioButtons() {
-        RadioGroup group = (RadioGroup) findViewById(R.id.radioGroup_board_size);
+
+        RadioGroup group_board_size = (RadioGroup) findViewById(R.id.radioGroup_board_size);
+
+        RadioGroup group_mines = (RadioGroup) findViewById(R.id.radioGroup_num_mines);
 
        int[] rows =  getResources().getIntArray(R.array.num_board_rows);
        int[] cols = getResources().getIntArray(R.array.num_board_cols);
+
+       int[] mines = getResources().getIntArray(R.array.num_of_mines);
 
         for(int i = 0; i < rows.length; i++){
             int row_value = rows[i];
@@ -34,9 +39,27 @@ public class OptionsActivity extends AppCompatActivity {
 
             RadioButton button = new RadioButton(this);
             button.setText("" + row_value +" rows x" + col_value+ " colunms" );
+            button.setTextColor(getApplication().getResources().getColor(R.color.colorAccent)); //TAKE DEFAULT COLOR
+            group_board_size.addView(button);
+            if( i == 0)
+            {
+                button.setChecked(true);
+            }
 
-            group.addView(button);
+        }
 
+        for(int i = 0; i < mines.length; i++)
+        {
+            int mine_value = mines[i];
+            RadioButton button = new RadioButton(this);
+            button.setText("" + mine_value + " mines");
+            button.setTextColor(getApplication().getResources().getColor(R.color.colorAccent)); //TAKE DEFAULT COLOR
+            group_mines.addView(button);
+
+            if( i == 0)
+            {
+                button.setChecked(true);
+            }
         }
     }
 
