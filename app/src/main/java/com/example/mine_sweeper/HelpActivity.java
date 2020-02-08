@@ -7,17 +7,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-public class PlayGameActivity extends AppCompatActivity {
+public class HelpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_play_game);
-        Toast.makeText(PlayGameActivity.this,"Begin Playing !", Toast.LENGTH_SHORT).show();
+        setContentView(R.layout.activity_help);
+        Toast.makeText(HelpActivity.this,"Help", Toast.LENGTH_SHORT).show();
 
     }
-    public static Intent makeLaunchIntent(Context c) {
-        Intent intent = new Intent(c, PlayGameActivity.class);
+
+    public static Intent makeHelpIntent(Context c){
+        Intent intent = new Intent(c,HelpActivity.class);
         return intent;
     }
 }

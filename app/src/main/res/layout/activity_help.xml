@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PlayGameActivity">
+    tools:context=".HelpActivity">
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="1043dp"
-        android:layout_height="578dp"
+        android:id="@+id/imageView3"
+        android:layout_width="1197dp"
+        android:layout_height="554dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
