@@ -17,6 +17,7 @@ public class OptionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
         Toast.makeText(OptionsActivity.this,"Select Options", Toast.LENGTH_SHORT).show();
+        Toast.makeText(OptionsActivity.this,"Select Options", Toast.LENGTH_SHORT).show();
 
         createRadioButtons();
 
