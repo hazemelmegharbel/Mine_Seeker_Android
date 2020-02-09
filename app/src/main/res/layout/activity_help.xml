@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HelpActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="1197dp"
+        android:layout_height="554dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/background" />
+
+    <TextView
+        android:id="@+id/link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="all"
+        android:clickable="true"
+        android:text="https://opencoursehub.cs.sfu.ca/bfraser/grav-cms/cmpt276/home"
+        app:layout_constraintTop_toBottomOf="@+id/link_276"
+        tools:layout_editor_absoluteX="32dp" />
+
+    <TextView
+        android:id="@+id/link_276"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginEnd="468dp"
+        android:layout_marginRight="468dp"
+        android:layout_marginBottom="16dp"
+        android:background="#66EBE7E7"
+        android:text="Link to Course Website"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:visibility="visible"
+        app:fontFamily="sans-serif-black"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/authors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="#83E0E0E0"
+        android:text="Authors"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:fontFamily="sans-serif-black"
+        app:layout_constraintTop_toBottomOf="@+id/link"
+        tools:layout_editor_absoluteX="32dp" />
+
+    <TextView
+        android:id="@+id/authors_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#72FFFFFF"
+        android:text="Takudzwa Marwendo, Hazem Elmegharbel"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:fontFamily="sans-serif-black"
+        app:layout_constraintTop_toBottomOf="@+id/authors"
+        tools:layout_editor_absoluteX="32dp" />
+
+    <TextView
+        android:id="@+id/HowtoPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="#8BFFFFFF"
+        android:text="How to Play"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:fontFamily="sans-serif-black"
+        app:layout_constraintTop_toBottomOf="@+id/authors_description"
+        tools:layout_editor_absoluteX="32dp" />
+
+    <TextView
+        android:id="@+id/howtoplaydescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#7AFFFFFF"
+        android:text="When playing the game, click on areas of the game to search for a cookie. If you find one, great! Otherwise youll start off a scan to count how many cookies are in that row or column. You can also click on a cookie to have it scan for its rows and columns for other cookies"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:fontFamily="sans-serif-black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HowtoPlay" />
+</androidx.constraintlayout.widget.ConstraintLayout>

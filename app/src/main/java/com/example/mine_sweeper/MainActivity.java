@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Toast.makeText(MainActivity.this, "This is a test toast to change main",Toast.LENGTH_SHORT)
-                .show();
+        Toast.makeText(MainActivity.this, "This is a test toast to change main",Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, "This is a test toast to change the options branch",Toast.LENGTH_SHORT).show();
 
         Button btn = (Button) findViewById(R.id.btnMain_Menu);
         btn.setOnClickListener(new View.OnClickListener(){
