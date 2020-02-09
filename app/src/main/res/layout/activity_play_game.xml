@@ -16,4 +16,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/background" />
+
+    <TableLayout
+        android:id="@+id/tableForButtons"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="214dp"
+        tools:layout_editor_absoluteY="53dp">
+
+    </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
