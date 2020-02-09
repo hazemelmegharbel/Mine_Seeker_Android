@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -34,8 +35,8 @@ public class OptionsActivity extends AppCompatActivity {
        int[] mines = getResources().getIntArray(R.array.num_of_mines);
 
         for(int i = 0; i < rows.length; i++){
-            int row_value = rows[i];
-            int col_value = cols[i];
+            final int row_value = rows[i];
+            final int col_value = cols[i];
 
             RadioButton button = new RadioButton(this);
             button.setText("" + row_value +" rows x" + col_value+ " colunms" );
@@ -45,6 +46,13 @@ public class OptionsActivity extends AppCompatActivity {
             {
                 button.setChecked(true);
             }
+            button.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View v)
+                {
+                    Toast.makeText(OptionsActivity.this, "You clicked "+ row_value +" x "+col_value +" Board size", Toast.LENGTH_SHORT)
+                            .show();
+                }
+            });
 
         }
 
