@@ -12,6 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class OptionsActivity extends AppCompatActivity {
+   private final Options opt = Options.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +20,6 @@ public class OptionsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_options);
         Toast.makeText(OptionsActivity.this,"Select Options", Toast.LENGTH_SHORT).show();
         Toast.makeText(OptionsActivity.this,"Select Options", Toast.LENGTH_SHORT).show();
-
         createRadioButtons();
 
     }
@@ -52,6 +52,9 @@ public class OptionsActivity extends AppCompatActivity {
                 {
                     Toast.makeText(OptionsActivity.this, "You clicked "+ row_value +" x "+col_value +" Board size", Toast.LENGTH_SHORT)
                             .show();
+                    opt.setRows(row_value);
+                    opt.setCols(col_value);
+
                 }
             });
 
@@ -59,7 +62,7 @@ public class OptionsActivity extends AppCompatActivity {
 
         for(int i = 0; i < mines.length; i++)
         {
-            int mine_value = mines[i];
+            final int mine_value = mines[i];
             RadioButton button = new RadioButton(this);
             button.setText("" + mine_value + " mines");
             button.setTextColor(getApplication().getResources().getColor(R.color.colorAccent)); //TAKE DEFAULT COLOR
@@ -69,6 +72,15 @@ public class OptionsActivity extends AppCompatActivity {
             {
                 button.setChecked(true);
             }
+            button.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View v)
+                {
+                    Toast.makeText(OptionsActivity.this, "You clicked "+ mine_value+" mines", Toast.LENGTH_SHORT)
+                            .show();
+                    opt.setMines(mine_value);
+
+                }
+            });
         }
     }
 
