@@ -14,6 +14,11 @@ import android.widget.Toast;
 
 public class PlayGameActivity extends AppCompatActivity {
     private final Options opt= Options.getInstance();
+    private GameLogic game;
+    private Button buttons [][];
+    private int found_mines = 0;
+    private int numOfMoves = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +37,15 @@ public class PlayGameActivity extends AppCompatActivity {
         Toast.makeText(PlayGameActivity.this, "you have selected "+ opt.getRows()+ " x "+ opt.getCols()+ " Board size and "+ opt.getMines()+" mines", Toast.LENGTH_SHORT)
             .show();
 
+
+        buttons= new Button[opt.getRows()][opt.getCols()];
+        game = new GameLogic(opt.getRows(), opt.getCols(), opt.getMines());
+        game.setUp();
         populateButtons();
     }
 
     private void populateButtons() {
+
         TableLayout table= findViewById(R.id.tableForButtons);
         for(int r=0;r<opt.getRows();r++)
         {
@@ -50,7 +60,9 @@ public class PlayGameActivity extends AppCompatActivity {
 
             for(int c=0;c<opt.getCols();c++)
             {
-                Button btn=new Button(this);
+                final int finalR = r;
+                final int finalC = c;
+                final Button btn=new Button(this);
 
                 btn.setLayoutParams(new TableRow.LayoutParams(
                         TableRow.LayoutParams.MATCH_PARENT,
@@ -61,16 +73,44 @@ public class PlayGameActivity extends AppCompatActivity {
 
                 btn.setOnClickListener(new View.OnClickListener(){
                     public void onClick(View v){
-                        gridButtonClicked();
-                    }
+                       // Toast.makeText(PlayGameActivity.this,"Button clicked is row " + finalR + " column " + finalC, Toast.LENGTH_SHORT).show();
+                        gridButtonClicked(finalR,finalC);
+                        }
                 });
 
                 tablerow.addView(btn);
+                buttons[r][c] = btn;
             }
         }
     }
 
-    private void gridButtonClicked() {
+    private void gridButtonClicked(int row, int col) {
+        Button btn = buttons[row][col];
+
+        // TODO Check to see if corresponding row and column is a mine
+
+        boolean mine_presence = game.check_for_mine(row,col);
+
+        if(mine_presence){
+            btn.setText("Mine");
+            found_mines++;
+            checkGame();
+        }
+        else{
+            int surrounding_mines = game.scan(row,col);
+            btn.setText("" + surrounding_mines);
+            numOfMoves++;
+        }
+
+
+    }
+
+    private void checkGame(){
+        if(found_mines == opt.getMines()){
+            Toast.makeText(PlayGameActivity.this,"Congratulations, game is over !", Toast.LENGTH_SHORT).show();
+            Toast.makeText(PlayGameActivity.this,"You took " + numOfMoves + " moves", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public static Intent makeLaunchIntent(Context c) {
