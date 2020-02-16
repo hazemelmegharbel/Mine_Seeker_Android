@@ -181,21 +181,20 @@ public class PlayGameActivity extends AppCompatActivity {
         }
     }
 
-    private void updateBoard(int row, int col){
-        // TODO Don't forget to integrate this with when the mine pictures are available.
-        // Iterate through the array of buttons. Check (using the currentStatus matrix) to see if that button has been clicked. If it has then decrement that baby
-        for(int row_y = 0; row_y < opt.getRows();row_y++){
-            if(row_y == row){
+    private void updateBoard(int row, int col) {
+
+        for (int row_y = 0; row_y < opt.getRows(); row_y++) {
+            if (row_y == row) {
                 continue;
             }
             Button btn = buttons[row_y][col];
-            boolean already_played = game.check_if_already_played(row_y,col);
-            if(already_played == true){
-                String buttontext =btn.getText().toString();
+            boolean already_played = game.check_if_already_played(row_y, col);
+            if (already_played == true) {
+                String buttontext = btn.getText().toString();
 
-                boolean mine_presence = game.check_for_mine(row_y,col);
+                boolean mine_presence = game.check_for_mine(row_y, col);
                 {
-                    if(mine_presence == false){
+                    if (buttontext.length() > 0) {
                         int num_of_current_hidden_mines = Integer.parseInt(buttontext);
                         int new_num = num_of_current_hidden_mines - 1;
                         btn.setText("" + new_num);
@@ -205,27 +204,27 @@ public class PlayGameActivity extends AppCompatActivity {
         }
 
 
-        for(int col_x = 0; col_x < opt.getCols(); col_x++){
-            if(col_x == col){
-                continue;
-            }
-            Button btn = buttons[row][col_x];
-            boolean already_played = game.check_if_already_played(row,col_x);
-            if(already_played == true){
-                String buttontext = btn.getText().toString();
+            for (int col_x = 0; col_x < opt.getCols(); col_x++) {
+                if (col_x == col) {
+                    continue;
+                }
+                Button btn = buttons[row][col_x];
+                boolean already_played = game.check_if_already_played(row, col_x);
+                if (already_played == true) {
+                    String buttontext = btn.getText().toString();
 
-                // Check to see if the position is a mine
-                boolean mine_presence = game.check_for_mine(row,col_x);
-                if(mine_presence == false)
-                {
+                    // Check to see if the position is a mine
+                    boolean mine_presence = game.check_for_mine(row, col_x);
+                    if (buttontext.length() > 0) {
                         int num_of_current_hidden_mines = Integer.parseInt(buttontext);
                         int new_num = num_of_current_hidden_mines - 1;
                         btn.setText("" + new_num);
-                }
+                    }
 
+                }
             }
         }
-    }
+
 
     private void checkGame(){
         if(found_mines == opt.getMines()){
