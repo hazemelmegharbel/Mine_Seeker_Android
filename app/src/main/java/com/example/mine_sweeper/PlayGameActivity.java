@@ -4,6 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -105,10 +109,21 @@ public class PlayGameActivity extends AppCompatActivity {
         boolean already_played = game.check_if_already_played(row,col);
         boolean mine_presence = game.check_for_mine(row,col);
 
+        lockButtonSize();
+
 
         if(already_played == false) {
             if(mine_presence){
-                btn.setText("Mine");
+                //btn.setText("Mine");
+                //btn.setBackground(R.drawable.sea_mine);
+                int newWidth=btn.getWidth();
+                int newHeight= btn.getHeight();
+                Bitmap originalBitmap= BitmapFactory.decodeResource(getResources(),R.drawable.sea_mine);
+                Bitmap scaledBitmap=Bitmap.createScaledBitmap(originalBitmap,newWidth,newHeight,true);
+                Resources resource=getResources();
+
+                btn.setBackground(new BitmapDrawable(resource, scaledBitmap));
+
                 found_mines++;
                 checkGame();
                 updateBoard(row,col);
@@ -131,6 +146,26 @@ public class PlayGameActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+    private void lockButtonSize()
+    {
+        for(int i=0;i<opt.getRows();i++)
+        {
+            for(int j=0;j<opt.getCols();j++)
+            {
+                Button btnTmp= buttons[i][j];
+
+                int width=btnTmp.getWidth();
+                btnTmp.setMinWidth(width);
+                btnTmp.setMaxHeight(width);
+
+                int height=btnTmp.getHeight();
+                btnTmp.setMinHeight(height);
+                btnTmp.setMaxHeight(height);
+
+            }
+        }
     }
 
     private void updateBoard(int row, int col){
