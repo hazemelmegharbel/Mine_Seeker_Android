@@ -26,6 +26,7 @@ public class PlayGameActivity extends AppCompatActivity {
         }
         Toast.makeText(PlayGameActivity.this, "you have selected "+ opt.getRows()+ " x "+ opt.getCols()+ " Board size and "+ opt.getMines()+" mines", Toast.LENGTH_SHORT)
             .show();
+        Toast.makeText(PlayGameActivity.this,"This is a dumb toast",Toast.LENGTH_SHORT).show();
 
 
     }
