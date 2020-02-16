@@ -92,6 +92,15 @@ public class GameLogic {
         currentStatus[row][col] = 1;
     }
 
+    public boolean check_if_already_played(int row, int col)
+    {
+        boolean to_be_returned = false;
+        if(currentStatus[row][col] == 1){
+            to_be_returned = true;
+        }
+        return to_be_returned;
+    }
+
     public boolean check_for_mine(int row, int col){
         boolean to_be_returned = false;
         if(randomMines[row][col] == 1)
@@ -110,7 +119,7 @@ public class GameLogic {
                 continue;
             }
             int value = randomMines[row][col_x];
-            if(value == 1)
+            if(value == 1 && (currentStatus[row][col_x] == 0 ))
             {
                 to_be_returned++;
             }
@@ -122,7 +131,7 @@ public class GameLogic {
                 continue;
             }
             int value = randomMines[row_y][col];
-            if(value == 1){
+            if(value == 1 && (currentStatus[row_y][col] == 0)){
                 to_be_returned++;
             }
         }

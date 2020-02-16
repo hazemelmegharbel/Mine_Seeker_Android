@@ -89,18 +89,37 @@ public class PlayGameActivity extends AppCompatActivity {
 
         // TODO Check to see if corresponding row and column is a mine
 
+        //TODO Check to see if the place has already been filled in yet
+
+        boolean already_played = game.check_if_already_played(row,col);
         boolean mine_presence = game.check_for_mine(row,col);
 
-        if(mine_presence){
-            btn.setText("Mine");
-            found_mines++;
-            checkGame();
+
+        if(already_played == false) {
+            if(mine_presence){
+                btn.setText("Mine");
+                found_mines++;
+                checkGame();
+            }
+            else{
+                int surrounding_mines = game.scan(row,col);
+                btn.setText("" + surrounding_mines);
+                numOfMoves++;
+            }
+
+            game.place_item(row,col);
+
         }
         else{
-            int surrounding_mines = game.scan(row,col);
-            btn.setText("" + surrounding_mines);
-            numOfMoves++;
+
+            if(mine_presence == true){
+                int surrounding_mines = game.scan(row,col);
+                Toast.makeText(PlayGameActivity.this,"Surrounding mines are " + surrounding_mines, Toast.LENGTH_SHORT).show();
+                numOfMoves++;
+            }
         }
+
+
 
 
     }
