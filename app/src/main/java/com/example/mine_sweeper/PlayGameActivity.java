@@ -25,21 +25,32 @@ public class PlayGameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_game);
         Toast.makeText(PlayGameActivity.this,"Begin Playing !", Toast.LENGTH_SHORT).show();
-        int rows=opt.getRows();
+        int rows= opt.getRows();
         int cols =opt.getCols();
         int mines=opt.getMines();
-        if(rows==0||cols==0)
+
+        if(rows==0 || cols==0 || rows == 0)
         {
-            opt.setRows(4);
-            opt.setCols(6);
-            opt.setMines(6);
+            if(rows == 0){
+                opt.setRows(4);
+            }
+            if(cols == 0){
+                opt.setCols(6);
+            }
+            if(mines == 0){
+                opt.setMines(6);
+            }
+            Toast.makeText(PlayGameActivity.this, "you have selected "+ opt.getRows()+ " x "+ opt.getCols()+ " Board size and "+ opt.getMines()+" mines", Toast.LENGTH_SHORT)
+                    .show();
+
         }
-        Toast.makeText(PlayGameActivity.this, "you have selected "+ opt.getRows()+ " x "+ opt.getCols()+ " Board size and "+ opt.getMines()+" mines", Toast.LENGTH_SHORT)
-            .show();
+
 
 
         buttons= new Button[opt.getRows()][opt.getCols()];
+
         game = new GameLogic(opt.getRows(), opt.getCols(), opt.getMines());
+
         game.setUp();
         populateButtons();
     }
