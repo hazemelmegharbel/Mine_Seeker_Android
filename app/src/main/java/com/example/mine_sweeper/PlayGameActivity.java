@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class PlayGameActivity extends AppCompatActivity {
@@ -21,7 +22,7 @@ public class PlayGameActivity extends AppCompatActivity {
     private GameLogic game;
     private Button buttons [][];
     private int found_mines = 0;
-    private int numOfMoves = 0;
+    private int numOfScans = 0;
 
 
     @Override
@@ -32,6 +33,7 @@ public class PlayGameActivity extends AppCompatActivity {
         int rows= opt.getRows();
         int cols =opt.getCols();
         int mines=opt.getMines();
+        TextView RemainingMines= (TextView) findViewById(R.id.NumMinesLeft);
 
         if(rows==0 || cols==0 || rows == 0)
         {
@@ -43,6 +45,7 @@ public class PlayGameActivity extends AppCompatActivity {
             }
             if(mines == 0){
                 opt.setMines(6);
+                RemainingMines.setText("Remaining Mines: "+ 6);
             }
             Toast.makeText(PlayGameActivity.this, "you have selected "+ opt.getRows()+ " x "+ opt.getCols()+ " Board size and "+ opt.getMines()+" mines", Toast.LENGTH_SHORT)
                     .show();
@@ -50,7 +53,7 @@ public class PlayGameActivity extends AppCompatActivity {
         }
 
 
-
+        RemainingMines.setText("Remaining Mines: " + opt.getMines());
         buttons= new Button[opt.getRows()][opt.getCols()];
 
         game = new GameLogic(opt.getRows(), opt.getCols(), opt.getMines());
@@ -109,6 +112,8 @@ public class PlayGameActivity extends AppCompatActivity {
         boolean already_played = game.check_if_already_played(row,col);
         boolean mine_presence = game.check_for_mine(row,col);
 
+        TextView FoundMines= (TextView) findViewById(R.id.NumMinesLeft);
+        TextView ScansUsed= (TextView) findViewById(R.id.NumScans);
         lockButtonSize();
 
 
@@ -125,13 +130,15 @@ public class PlayGameActivity extends AppCompatActivity {
                 btn.setBackground(new BitmapDrawable(resource, scaledBitmap));
 
                 found_mines++;
+                FoundMines.setText("Remaining Mines: "+(opt.getMines()-found_mines));
                 checkGame();
                 updateBoard(row,col);
             }
             else{
                 int surrounding_mines = game.scan(row,col);
                 btn.setText("" + surrounding_mines);
-                numOfMoves++;
+                numOfScans++;
+                ScansUsed.setText("Scans Used: "+numOfScans);
             }
 
             game.place_item(row,col);
@@ -141,8 +148,10 @@ public class PlayGameActivity extends AppCompatActivity {
 
             if(mine_presence == true){
                 int surrounding_mines = game.scan(row,col);
-                Toast.makeText(PlayGameActivity.this,"Surrounding mines are " + surrounding_mines, Toast.LENGTH_SHORT).show();
-                numOfMoves++;
+                btn.setText(""+surrounding_mines);
+                //Toast.makeText(PlayGameActivity.this,"Surrounding mines are " + surrounding_mines, Toast.LENGTH_SHORT).show();
+                numOfScans++;
+                ScansUsed.setText("Scans Used: "+numOfScans);
             }
         }
 
@@ -217,7 +226,7 @@ public class PlayGameActivity extends AppCompatActivity {
     private void checkGame(){
         if(found_mines == opt.getMines()){
             Toast.makeText(PlayGameActivity.this,"Congratulations, game is over !", Toast.LENGTH_SHORT).show();
-            Toast.makeText(PlayGameActivity.this,"You took " + numOfMoves + " moves", Toast.LENGTH_SHORT).show();
+            Toast.makeText(PlayGameActivity.this,"You took " + numOfScans + " moves", Toast.LENGTH_SHORT).show();
         }
 
     }
