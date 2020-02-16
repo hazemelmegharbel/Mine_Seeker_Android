@@ -1,6 +1,7 @@
 package com.example.mine_sweeper;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
 import android.content.Intent;
@@ -27,6 +28,8 @@ public class PlayGameActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_game);
         Toast.makeText(PlayGameActivity.this,"Begin Playing !", Toast.LENGTH_SHORT).show();
@@ -34,6 +37,7 @@ public class PlayGameActivity extends AppCompatActivity {
         int cols =opt.getCols();
         int mines=opt.getMines();
         TextView RemainingMines= (TextView) findViewById(R.id.NumMinesLeft);
+
 
         if(rows==0 || cols==0 || rows == 0)
         {
@@ -225,8 +229,11 @@ public class PlayGameActivity extends AppCompatActivity {
 
     private void checkGame(){
         if(found_mines == opt.getMines()){
-            Toast.makeText(PlayGameActivity.this,"Congratulations, game is over !", Toast.LENGTH_SHORT).show();
-            Toast.makeText(PlayGameActivity.this,"You took " + numOfScans + " moves", Toast.LENGTH_SHORT).show();
+            FragmentManager manager = getSupportFragmentManager();
+            CongratsFragment dialog = new CongratsFragment();
+            dialog.show(manager,"MessageDialog");
+
+
         }
 
     }
