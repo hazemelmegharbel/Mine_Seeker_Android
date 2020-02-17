@@ -53,8 +53,7 @@ public class OptionsActivity extends AppCompatActivity {
             button.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View v)
                 {
-                   // Toast.makeText(OptionsActivity.this, "You clicked "+ row_value +" x "+col_value +" Board size", Toast.LENGTH_SHORT)
-                  //          .show();
+
                     opt.setRows(row_value);
                     opt.setCols(col_value);
 
@@ -78,8 +77,7 @@ public class OptionsActivity extends AppCompatActivity {
             button.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View v)
                 {
-                 //   Toast.makeText(OptionsActivity.this, "You clicked "+ mine_value+" mines", Toast.LENGTH_SHORT)
-                 //           .show();
+
                     opt.setMines(mine_value);
 
                 }
