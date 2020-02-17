@@ -2,6 +2,8 @@ package com.example.mine_sweeper;
 
 import android.content.Intent;
 import android.os.Bundle;
+import Model.GameLogic;
+import  Model.Options;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;

@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import Model.GameLogic;
+import  Model.Options;
+
+import Model.Options;
 
 public class OptionsActivity extends AppCompatActivity {
    private final Options opt = Options.getInstance();

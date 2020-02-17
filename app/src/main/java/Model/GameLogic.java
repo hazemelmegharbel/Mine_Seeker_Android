@@ -1,6 +1,4 @@
-package com.example.mine_sweeper;
-
-import java.sql.SQLOutput;
+package Model;
 
 public class GameLogic {
 
@@ -25,6 +23,7 @@ public class GameLogic {
         }
 
     }
+
 
     public int getRows() {
         return rows;
