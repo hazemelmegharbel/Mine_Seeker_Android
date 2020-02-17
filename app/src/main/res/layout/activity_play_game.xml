@@ -16,4 +16,39 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/background" />
+
+    <TextView
+        android:id="@+id/NumScans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="34dp"
+        android:background="#0AFFFFFF"
+        android:text="Scans Used: 0"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/tableForButtons"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TableLayout
+        android:id="@+id/tableForButtons"
+        android:layout_width="588dp"
+        android:layout_height="261dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.807">
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/NumMinesLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="34dp"
+        android:background="#0FFFFFFF"
+        android:text="Remaining Mines: 0"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/tableForButtons"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
