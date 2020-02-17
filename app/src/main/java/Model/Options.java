@@ -1,4 +1,4 @@
-package com.example.mine_sweeper;
+package Model;
 
 public class Options {
     private int rows;

@@ -11,12 +11,14 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import Model.GameLogic;
+import Model.Options;
 
 public class PlayGameActivity extends AppCompatActivity {
     private final Options opt= Options.getInstance();
@@ -95,7 +97,7 @@ public class PlayGameActivity extends AppCompatActivity {
 
                 btn.setOnClickListener(new View.OnClickListener(){
                     public void onClick(View v){
-                       // Toast.makeText(PlayGameActivity.this,"Button clicked is row " + finalR + " column " + finalC, Toast.LENGTH_SHORT).show();
+
                         gridButtonClicked(finalR,finalC);
                         }
                 });
@@ -109,9 +111,6 @@ public class PlayGameActivity extends AppCompatActivity {
     private void gridButtonClicked(int row, int col) {
         Button btn = buttons[row][col];
 
-        // TODO Check to see if corresponding row and column is a mine
-
-        //TODO Check to see if the place has already been filled in yet
 
         boolean already_played = game.check_if_already_played(row,col);
         boolean mine_presence = game.check_for_mine(row,col);
@@ -123,8 +122,7 @@ public class PlayGameActivity extends AppCompatActivity {
 
         if(already_played == false) {
             if(mine_presence){
-                //btn.setText("Mine");
-                //btn.setBackground(R.drawable.sea_mine);
+
                 int newWidth=btn.getWidth();
                 int newHeight= btn.getHeight();
                 Bitmap originalBitmap= BitmapFactory.decodeResource(getResources(),R.drawable.sea_mine);
@@ -153,7 +151,6 @@ public class PlayGameActivity extends AppCompatActivity {
             if(mine_presence == true){
                 int surrounding_mines = game.scan(row,col);
                 btn.setText(""+surrounding_mines);
-                //Toast.makeText(PlayGameActivity.this,"Surrounding mines are " + surrounding_mines, Toast.LENGTH_SHORT).show();
                 numOfScans++;
                 ScansUsed.setText("Scans Used: "+numOfScans);
             }

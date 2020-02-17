@@ -2,6 +2,8 @@ package com.example.mine_sweeper;
 
 import android.content.Intent;
 import android.os.Bundle;
+import Model.GameLogic;
+import  Model.Options;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -24,8 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        Toast.makeText(MainActivity.this, "This is a test toast to change main",Toast.LENGTH_SHORT).show();
-//        Toast.makeText(MainActivity.this, "This is a test toast to change the options branch",Toast.LENGTH_SHORT).show();
+
 
         Button btn = (Button) findViewById(R.id.btnMain_Menu);
         btn.setOnClickListener(new View.OnClickListener(){

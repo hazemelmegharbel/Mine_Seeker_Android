@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
+import Model.GameLogic;
+import  Model.Options;
 
 public class HelpActivity extends AppCompatActivity {
 

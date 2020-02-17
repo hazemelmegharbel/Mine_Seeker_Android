@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import Model.GameLogic;
+import  Model.Options;
+
+import Model.Options;
 
 public class OptionsActivity extends AppCompatActivity {
    private final Options opt = Options.getInstance();
@@ -50,8 +53,7 @@ public class OptionsActivity extends AppCompatActivity {
             button.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View v)
                 {
-                   // Toast.makeText(OptionsActivity.this, "You clicked "+ row_value +" x "+col_value +" Board size", Toast.LENGTH_SHORT)
-                  //          .show();
+
                     opt.setRows(row_value);
                     opt.setCols(col_value);
 
@@ -75,8 +77,7 @@ public class OptionsActivity extends AppCompatActivity {
             button.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View v)
                 {
-                 //   Toast.makeText(OptionsActivity.this, "You clicked "+ mine_value+" mines", Toast.LENGTH_SHORT)
-                 //           .show();
+
                     opt.setMines(mine_value);
 
                 }

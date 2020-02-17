@@ -14,6 +14,8 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import Model.GameLogic;
+import  Model.Options;
 
 public class MainMenuActivity extends AppCompatActivity {
 
