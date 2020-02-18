@@ -4,11 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
+
 import Model.GameLogic;
 import  Model.Options;
 
@@ -16,6 +21,8 @@ import Model.Options;
 
 public class OptionsActivity extends AppCompatActivity {
    private final Options opt = Options.getInstance();
+   private final HighScores highScores = HighScores.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +31,28 @@ public class OptionsActivity extends AppCompatActivity {
         Toast.makeText(OptionsActivity.this,"Select Options", Toast.LENGTH_SHORT).show();
         Toast.makeText(OptionsActivity.this,"Select Options", Toast.LENGTH_SHORT).show();
         createRadioButtons();
+        Button btnReset = findViewById(R.id.resetBtn);
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                highScores.resetHighScores();
+            }
+        });
+        
+        saveData();
 
     }
+
+    private void saveData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(highScores.highscores);
+        editor.putString("task list", json);
+        editor.apply();
+    }
+
+
 
     private void createRadioButtons() {
 
@@ -39,8 +66,11 @@ public class OptionsActivity extends AppCompatActivity {
        int[] mines = getResources().getIntArray(R.array.num_of_mines);
 
         for(int i = 0; i < rows.length; i++){
+
             final int row_value = rows[i];
             final int col_value = cols[i];
+
+            opt.setChosen_board_size(i);
 
             RadioButton button = new RadioButton(this);
             button.setText("" + row_value +" rows x" + col_value+ " colunms" );
@@ -65,6 +95,7 @@ public class OptionsActivity extends AppCompatActivity {
         for(int i = 0; i < mines.length; i++)
         {
             final int mine_value = mines[i];
+            opt.setChosen_mine_size(i);
             RadioButton button = new RadioButton(this);
             button.setText("" + mine_value + " mines");
             button.setTextColor(getApplication().getResources().getColor(R.color.colorAccent)); //TAKE DEFAULT COLOR
