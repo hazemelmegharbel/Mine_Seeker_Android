@@ -1,3 +1,6 @@
+/*
+    Main Activity. Loads up the Main Menu Activity.
+ */
 package com.example.mine_sweeper;
 
 import android.content.Intent;
@@ -24,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
 
         Button btn = (Button) findViewById(R.id.btnMain_Menu);
