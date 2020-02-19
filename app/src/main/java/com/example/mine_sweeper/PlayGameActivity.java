@@ -106,7 +106,7 @@ public class PlayGameActivity extends AppCompatActivity {
         chosen_mine_size = opt.getChosen_mine_size();
 
         TextView HighScores= (TextView) findViewById(R.id.highScores);
-        int highscoreValue = highScores.GetHighScore(chosen_board_size,chosen_mine_size );
+        int highscoreValue = highScores.GetHighScore(chosen_board_size ,chosen_mine_size );
         if(highscoreValue == 1000){
             HighScores.setText("High Score : ");
         }
@@ -307,7 +307,7 @@ public class PlayGameActivity extends AppCompatActivity {
             FragmentManager manager = getSupportFragmentManager();
             CongratsFragment dialog = new CongratsFragment();
 
-            if(numOfScans < highScores.GetHighScore(chosen_board_size,chosen_mine_size)){
+            if(numOfScans < highScores.GetHighScore(chosen_board_size ,chosen_mine_size )){
                 highScores.SetNewHighScore(chosen_board_size,chosen_mine_size,numOfScans);
             }
             saveData();

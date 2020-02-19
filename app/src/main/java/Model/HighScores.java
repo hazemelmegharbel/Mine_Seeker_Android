@@ -4,8 +4,8 @@
 package Model;
 
 public class HighScores {
-    private final int NUM_OF_MINE_OPTIONS = 3;
-    private final int NUM_OF_BOARD_CONFIGURATIONS = 2;
+    private final int NUM_OF_MINE_OPTIONS = 4;
+    private final int NUM_OF_BOARD_CONFIGURATIONS = 3;
     private static HighScores highscore;
     public int numberOfGamesPlayed;
     public int[][] highscores;
