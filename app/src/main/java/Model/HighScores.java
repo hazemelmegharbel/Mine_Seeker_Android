@@ -1,4 +1,7 @@
-package com.example.mine_sweeper;
+/*
+    Highscores class. Uses singleton and keeps an array to store highscores.
+ */
+package Model;
 
 public class HighScores {
     private final int NUM_OF_MINE_OPTIONS = 3;

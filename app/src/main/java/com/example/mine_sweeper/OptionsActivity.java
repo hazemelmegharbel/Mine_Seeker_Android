@@ -1,3 +1,6 @@
+/*
+    Options activity. Also sets the radio buttons and allows user to reset highscores.
+ */
 package com.example.mine_sweeper;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,10 +21,8 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 
-import Model.GameLogic;
+import Model.HighScores;
 import  Model.Options;
-
-import Model.Options;
 
 public class OptionsActivity extends AppCompatActivity {
     public static final String SHARED_PREFERENCES = "shared preferences";

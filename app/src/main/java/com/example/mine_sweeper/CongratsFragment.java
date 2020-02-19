@@ -1,3 +1,7 @@
+/*
+    THis is the fragment activity for the congratulations message. Associated with the
+    congratulations layout.
+ */
 package com.example.mine_sweeper;
 
 import android.app.AlertDialog;

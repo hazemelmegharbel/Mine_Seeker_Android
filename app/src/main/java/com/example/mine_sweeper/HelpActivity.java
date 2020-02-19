@@ -1,3 +1,6 @@
+/*
+    This is the Help Activity. Launches the help activity.
+ */
 package com.example.mine_sweeper;
 
 import androidx.appcompat.app.AppCompatActivity;

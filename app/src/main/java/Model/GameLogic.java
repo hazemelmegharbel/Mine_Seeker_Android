@@ -1,3 +1,6 @@
+/*
+    Game logic class. Maintains arrays to maintain game logic.
+ */
 package Model;
 
 public class GameLogic {

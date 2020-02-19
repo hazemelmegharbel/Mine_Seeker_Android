@@ -1,6 +1,9 @@
 
 /*
+    Play game activity. Allows for saving and loading highscores. Utitlizes the game logic class.
     http://www.orangefreesounds.com/hmm-sound-effect/
+    Tutorials used : https://www.youtube.com/watch?v=jcliHGR3CHo&t=256s
+    https://www.youtube.com/watch?v=C_Ka7cKwXW0&t=23s
  */
 package com.example.mine_sweeper;
 
@@ -33,6 +36,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 
 import Model.GameLogic;
+import Model.HighScores;
 import Model.Options;
 
 public class PlayGameActivity extends AppCompatActivity {

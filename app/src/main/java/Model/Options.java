@@ -1,3 +1,6 @@
+/*
+    Options class. Uses singleton design pattern to ensure only 1 set of options are ever in play.
+ */
 package Model;
 
 public class Options {

@@ -1,3 +1,6 @@
+/*
+    Main Menu Activity. Sets the whole project in motion.
+ */
 package com.example.mine_sweeper;
 
 import android.app.NativeActivity;
