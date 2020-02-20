@@ -97,8 +97,7 @@ public class PlayGameActivity extends AppCompatActivity {
                 opt.setMines(6);
                 RemainingMines.setText("Remaining Mines: "+ 6);
             }
-            Toast.makeText(PlayGameActivity.this, "you have selected "+ opt.getRows()+ " x "+ opt.getCols()+ " Board size and "+ opt.getMines()+" mines", Toast.LENGTH_SHORT)
-                    .show();
+
         }
 
 
