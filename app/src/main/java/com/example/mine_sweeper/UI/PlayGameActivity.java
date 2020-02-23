@@ -5,7 +5,7 @@
     Tutorials used : https://www.youtube.com/watch?v=jcliHGR3CHo&t=256s
     https://www.youtube.com/watch?v=C_Ka7cKwXW0&t=23s
  */
-package com.example.mine_sweeper;
+package com.example.mine_sweeper.UI;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,14 +30,15 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mine_sweeper.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 
-import Model.GameLogic;
-import Model.HighScores;
-import Model.Options;
+import com.example.mine_sweeper.Model.GameLogic;
+import com.example.mine_sweeper.Model.HighScores;
+import com.example.mine_sweeper.Model.Options;
 
 public class PlayGameActivity extends AppCompatActivity {
     public static final String SHARED_PREFERENCES = "shared preferences";

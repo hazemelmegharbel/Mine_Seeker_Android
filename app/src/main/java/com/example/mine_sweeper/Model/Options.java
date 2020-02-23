@@ -1,7 +1,7 @@
 /*
     Options class. Uses singleton design pattern to ensure only 1 set of options are ever in play.
  */
-package Model;
+package com.example.mine_sweeper.Model;
 
 public class Options {
     private int rows;

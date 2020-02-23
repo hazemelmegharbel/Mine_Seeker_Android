@@ -1,7 +1,7 @@
 /*
     This is the Help Activity. Launches the help activity.
  */
-package com.example.mine_sweeper;
+package com.example.mine_sweeper.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,8 +9,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
-import Model.GameLogic;
-import  Model.Options;
+
+import com.example.mine_sweeper.R;
 
 public class HelpActivity extends AppCompatActivity {
 

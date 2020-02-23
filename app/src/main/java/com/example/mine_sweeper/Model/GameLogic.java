@@ -1,7 +1,7 @@
 /*
     Game logic class. Maintains arrays to maintain game logic.
  */
-package Model;
+package com.example.mine_sweeper.Model;
 
 public class GameLogic {
 
@@ -158,31 +158,6 @@ public class GameLogic {
             }
             System.out.println();
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println("Testing");
-        GameLogic game = new GameLogic(5,5,25);
-        game.setUp();
-//        System.out.println("Printing locations of random mines");
-       game.print_random();
-        System.out.println("Printing our current status");
-        game.print_current_status();
-        game.place_item(3,3);
-
-        boolean is_mine = game.check_for_mine(2,2);
-        if(is_mine){
-            System.out.println("THERE IS A MINE HERE");
-        }
-        else
-        {
-            System.out.println("THERE IS NO MINE HERE");
-        }
-//        System.out.println();
-//        game.print_current_status();
-//        int num_of_mines = game.scan(3,3);
-//        System.out.println("There are " + num_of_mines+ " mines around");
-
     }
 
 }

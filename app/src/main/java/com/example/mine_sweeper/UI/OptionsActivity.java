@@ -1,7 +1,7 @@
 /*
     Options activity. Also sets the radio buttons and allows user to reset highscores.
  */
-package com.example.mine_sweeper;
+package com.example.mine_sweeper.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,13 +16,14 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mine_sweeper.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 
-import Model.HighScores;
-import  Model.Options;
+import com.example.mine_sweeper.Model.HighScores;
+import  com.example.mine_sweeper.Model.Options;
 
 public class OptionsActivity extends AppCompatActivity {
     public static final String SHARED_PREFERENCES = "shared preferences";

@@ -1,24 +1,19 @@
 /*
     Main Menu Activity. Sets the whole project in motion.
  */
-package com.example.mine_sweeper;
+package com.example.mine_sweeper.UI;
 
-import android.app.NativeActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-import Model.GameLogic;
-import  Model.Options;
+
+import com.example.mine_sweeper.R;
 
 public class MainMenuActivity extends AppCompatActivity {
 
